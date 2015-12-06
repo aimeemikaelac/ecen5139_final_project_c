@@ -39,23 +39,28 @@
 // 0x24 : Data signal of finished
 //        bit 0  - finished[0] (Read)
 //        others - reserved
-// 0x28 : Data signal of ap_return
+// 0x28 : reserved
+// 0x2c : Data signal of currentIteration
+//        bit 31~0 - currentIteration[31:0] (Read)
+// 0x30 : Data signal of ap_return
 //        bit 0  - ap_return[0] (Read)
 //        others - reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
-#define XRUNQUEUE_AXI4LITES_ADDR_AP_CTRL         0x00
-#define XRUNQUEUE_AXI4LITES_ADDR_GIE             0x04
-#define XRUNQUEUE_AXI4LITES_ADDR_IER             0x08
-#define XRUNQUEUE_AXI4LITES_ADDR_ISR             0x0c
-#define XRUNQUEUE_AXI4LITES_ADDR_FULLOUT_DATA    0x14
-#define XRUNQUEUE_AXI4LITES_BITS_FULLOUT_DATA    1
-#define XRUNQUEUE_AXI4LITES_ADDR_ITERATIONS_CTRL 0x18
-#define XRUNQUEUE_AXI4LITES_ADDR_ITERATIONS_DATA 0x1c
-#define XRUNQUEUE_AXI4LITES_BITS_ITERATIONS_DATA 32
-#define XRUNQUEUE_AXI4LITES_ADDR_FINISHED_CTRL   0x20
-#define XRUNQUEUE_AXI4LITES_ADDR_FINISHED_DATA   0x24
-#define XRUNQUEUE_AXI4LITES_BITS_FINISHED_DATA   1
-#define XRUNQUEUE_AXI4LITES_ADDR_AP_RETURN       0x28
-#define XRUNQUEUE_AXI4LITES_BITS_AP_RETURN       1
+#define XRUNQUEUE_AXI4LITES_ADDR_AP_CTRL               0x00
+#define XRUNQUEUE_AXI4LITES_ADDR_GIE                   0x04
+#define XRUNQUEUE_AXI4LITES_ADDR_IER                   0x08
+#define XRUNQUEUE_AXI4LITES_ADDR_ISR                   0x0c
+#define XRUNQUEUE_AXI4LITES_ADDR_FULLOUT_DATA          0x14
+#define XRUNQUEUE_AXI4LITES_BITS_FULLOUT_DATA          1
+#define XRUNQUEUE_AXI4LITES_ADDR_ITERATIONS_CTRL       0x18
+#define XRUNQUEUE_AXI4LITES_ADDR_ITERATIONS_DATA       0x1c
+#define XRUNQUEUE_AXI4LITES_BITS_ITERATIONS_DATA       32
+#define XRUNQUEUE_AXI4LITES_ADDR_FINISHED_CTRL         0x20
+#define XRUNQUEUE_AXI4LITES_ADDR_FINISHED_DATA         0x24
+#define XRUNQUEUE_AXI4LITES_BITS_FINISHED_DATA         1
+#define XRUNQUEUE_AXI4LITES_ADDR_CURRENTITERATION_DATA 0x2c
+#define XRUNQUEUE_AXI4LITES_BITS_CURRENTITERATION_DATA 32
+#define XRUNQUEUE_AXI4LITES_ADDR_AP_RETURN             0x30
+#define XRUNQUEUE_AXI4LITES_BITS_AP_RETURN             1
 
