@@ -42,7 +42,10 @@
 // 0x28 : reserved
 // 0x2c : Data signal of currentIteration
 //        bit 31~0 - currentIteration[31:0] (Read)
-// 0x30 : Data signal of ap_return
+// 0x30 : reserved
+// 0x34 : Data signal of total
+//        bit 31~0 - total[31:0] (Read)
+// 0x38 : Data signal of ap_return
 //        bit 31~0 - ap_return[31:0] (Read)
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
@@ -60,6 +63,8 @@
 #define XRUNQUEUE_AXI4LITES_BITS_FINISHED_DATA         1
 #define XRUNQUEUE_AXI4LITES_ADDR_CURRENTITERATION_DATA 0x2c
 #define XRUNQUEUE_AXI4LITES_BITS_CURRENTITERATION_DATA 32
-#define XRUNQUEUE_AXI4LITES_ADDR_AP_RETURN             0x30
+#define XRUNQUEUE_AXI4LITES_ADDR_TOTAL_DATA            0x34
+#define XRUNQUEUE_AXI4LITES_BITS_TOTAL_DATA            32
+#define XRUNQUEUE_AXI4LITES_ADDR_AP_RETURN             0x38
 #define XRUNQUEUE_AXI4LITES_BITS_AP_RETURN             32
 
