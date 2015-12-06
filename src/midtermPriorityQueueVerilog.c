@@ -29,8 +29,8 @@ int main(int argc, char** argv){
 	//		printf("Current priority: %u\n", currentPriority);
 	//		u32 currentFull = XRunqueue_GetFullout(&queueInstance);
 	//		printf("Current full: %u\n", currentFull);
-			u32 currentIteration = XRunqueue_GetCurrentiteration(&queueInstance);
-			printf("Current iteration: %u\n", currentIteration);
+//			u32 currentIteration = XRunqueue_GetCurrentiteration(&queueInstance);
+//			printf("Current iteration: %u\n", currentIteration);
 			counter++;
 		}
 	
@@ -39,6 +39,12 @@ int main(int argc, char** argv){
 		printf("Value of counter: %i\n", counter);
 	
 		printf("It took %lu microseconds for %i iterations\n", stop.tv_usec - start.tv_usec, i);
+
+		printf("It took %lu seconds for %i iterations\n", stop.tv_sec - start.tv_sec, i);
+
+		u32 total = XRunqueue_GetTotal(&queueInstance);
+
+		printf("Number of recorded enqueues: %u\n", total);
 
 		u32 queueFinished = XRunqueue_GetFinished(&queueInstance);
 

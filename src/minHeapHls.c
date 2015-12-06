@@ -40,6 +40,8 @@ int main(int argc, char** argv){
 	
 		printf("It took %lu microseconds\n", stop.tv_usec - start.tv_usec);
 
+		printf("It took %lu seconds\n", stop.tv_sec - start.tv_sec);
+
 //		u32 queueFinished = XRunqueue_GetFinished(&queueInstance);
 
 //		printf("Queue finished value: %u\n", queueFinished);
