@@ -85,6 +85,16 @@ u32 XRunqueue_GetReturn(XRunqueue *InstancePtr) {
     Data = XRunqueue_ReadReg(InstancePtr->Axi4lites_BaseAddress, XRUNQUEUE_AXI4LITES_ADDR_AP_RETURN);
     return Data;
 }
+u32 XRunqueue_GetCurrentpriority_v(XRunqueue *InstancePtr) {
+    u32 Data;
+
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Data = XRunqueue_ReadReg(InstancePtr->Axi4lites_BaseAddress, XRUNQUEUE_AXI4LITES_ADDR_CURRENTPRIORITY_V_DATA);
+    return Data;
+}
+
 void XRunqueue_InterruptGlobalEnable(XRunqueue *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);

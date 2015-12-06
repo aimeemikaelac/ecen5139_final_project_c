@@ -24,15 +24,21 @@
 //        bit 0  - Channel 0 (ap_done)
 //        bit 1  - Channel 1 (ap_ready)
 //        others - reserved
-// 0x10 : Data signal of ap_return
+// 0x10 : reserved
+// 0x14 : Data signal of currentPriority_V
+//        bit 3~0 - currentPriority_V[3:0] (Read)
+//        others  - reserved
+// 0x18 : Data signal of ap_return
 //        bit 0  - ap_return[0] (Read)
 //        others - reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
-#define XRUNQUEUE_AXI4LITES_ADDR_AP_CTRL   0x00
-#define XRUNQUEUE_AXI4LITES_ADDR_GIE       0x04
-#define XRUNQUEUE_AXI4LITES_ADDR_IER       0x08
-#define XRUNQUEUE_AXI4LITES_ADDR_ISR       0x0c
-#define XRUNQUEUE_AXI4LITES_ADDR_AP_RETURN 0x10
-#define XRUNQUEUE_AXI4LITES_BITS_AP_RETURN 1
+#define XRUNQUEUE_AXI4LITES_ADDR_AP_CTRL                0x00
+#define XRUNQUEUE_AXI4LITES_ADDR_GIE                    0x04
+#define XRUNQUEUE_AXI4LITES_ADDR_IER                    0x08
+#define XRUNQUEUE_AXI4LITES_ADDR_ISR                    0x0c
+#define XRUNQUEUE_AXI4LITES_ADDR_CURRENTPRIORITY_V_DATA 0x14
+#define XRUNQUEUE_AXI4LITES_BITS_CURRENTPRIORITY_V_DATA 4
+#define XRUNQUEUE_AXI4LITES_ADDR_AP_RETURN              0x18
+#define XRUNQUEUE_AXI4LITES_BITS_AP_RETURN              1
 
