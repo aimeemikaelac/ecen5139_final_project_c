@@ -28,17 +28,25 @@
 // 0x14 : Data signal of fullOut
 //        bit 0  - fullOut[0] (Read)
 //        others - reserved
-// 0x18 : Data signal of ap_return
+// 0x18 : Control signal of iterations
+//        bit 0  - iterations_ap_vld (Read/Write/SC)
+//        others - reserved
+// 0x1c : Data signal of iterations
+//        bit 31~0 - iterations[31:0] (Read/Write)
+// 0x20 : Data signal of ap_return
 //        bit 0  - ap_return[0] (Read)
 //        others - reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
-#define XRUNQUEUE_AXI4LITES_ADDR_AP_CTRL      0x00
-#define XRUNQUEUE_AXI4LITES_ADDR_GIE          0x04
-#define XRUNQUEUE_AXI4LITES_ADDR_IER          0x08
-#define XRUNQUEUE_AXI4LITES_ADDR_ISR          0x0c
-#define XRUNQUEUE_AXI4LITES_ADDR_FULLOUT_DATA 0x14
-#define XRUNQUEUE_AXI4LITES_BITS_FULLOUT_DATA 1
-#define XRUNQUEUE_AXI4LITES_ADDR_AP_RETURN    0x18
-#define XRUNQUEUE_AXI4LITES_BITS_AP_RETURN    1
+#define XRUNQUEUE_AXI4LITES_ADDR_AP_CTRL         0x00
+#define XRUNQUEUE_AXI4LITES_ADDR_GIE             0x04
+#define XRUNQUEUE_AXI4LITES_ADDR_IER             0x08
+#define XRUNQUEUE_AXI4LITES_ADDR_ISR             0x0c
+#define XRUNQUEUE_AXI4LITES_ADDR_FULLOUT_DATA    0x14
+#define XRUNQUEUE_AXI4LITES_BITS_FULLOUT_DATA    1
+#define XRUNQUEUE_AXI4LITES_ADDR_ITERATIONS_CTRL 0x18
+#define XRUNQUEUE_AXI4LITES_ADDR_ITERATIONS_DATA 0x1c
+#define XRUNQUEUE_AXI4LITES_BITS_ITERATIONS_DATA 32
+#define XRUNQUEUE_AXI4LITES_ADDR_AP_RETURN       0x20
+#define XRUNQUEUE_AXI4LITES_BITS_AP_RETURN       1
 
