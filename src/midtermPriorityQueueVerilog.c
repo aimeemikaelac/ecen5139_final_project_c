@@ -15,7 +15,11 @@ int main(){
 	XRunqueue_Start(&queueInstance);
 
 	//wait for finish
-	while(!XRunqueue_IsDone(&queueInstance)){
+	while(XRunqueue_IsDone(&queueInstance) == 0){
+		u32 currentPriority = XRunqueue_GetCurrentpriority_v(&queueInstance);
+		printf("Current priority: %u\n", currentPriority);
+		u32 currentFull = XRunqueue_GetFullout(&queueInstance);
+		printf("Current full: %u\n", currentFull);
 		i++;
 	}
 
