@@ -2,40 +2,48 @@
 #include <sys/time.h>
 
 int main(){
+	int i;
 	XRunqueue queueInstance;
 
 	XRunqueue_Initialize(&queueInstance, "runqueue");
 
-	int i = 0;
-
-	struct timeval start, stop;
-
-	gettimeofday(&start, NULL);
-
-	u32 queueReturn = XRunqueue_GetReturn(&queueInstance);
-
-	printf("Starting return value: %u\n", queueReturn);
-
-	XRunqueue_Start(&queueInstance);
-
-	//wait for finish
-	while(XRunqueue_IsDone(&queueInstance) == 0){
-		u32 currentPriority = XRunqueue_GetCurrentpriority_v(&queueInstance);
-		printf("Current priority: %u\n", currentPriority);
-		u32 currentFull = XRunqueue_GetFullout(&queueInstance);
-		printf("Current full: %u\n", currentFull);
-		i++;
-	}
-
-	gettimeofday(&stop, NULL);
-
-	printf("Value of i: %i\n", i);
-
-	printf("It took %lu microseconds\n", stop.tv_usec - start.tv_usec);
+	for(i=1; i<10000; i*=2){
 	
-	queueReturn = XRunqueue_GetReturn(&queueInstance);
+		int counter = 0;
+	
+		struct timeval start, stop;
 
-	printf("Ending return value: %u\n", queueReturn);
+		XRunqueue_SetIterations(&queueInstance, i);
+		
+		u32 queueReturn = XRunqueue_GetReturn(&queueInstance);
+	
+		printf("Starting return value: %u\n", queueReturn);
+		
+		XRunqueue_Start(&queueInstance);
+
+		gettimeofday(&start, NULL);
+	
+		XRunqueue_SetIterationsVld(&queueInstance);
+	
+		//wait for finish
+		while(XRunqueue_IsDone(&queueInstance) == 0){
+	//		u32 currentPriority = XRunqueue_GetCurrentpriority_v(&queueInstance);
+	//		printf("Current priority: %u\n", currentPriority);
+	//		u32 currentFull = XRunqueue_GetFullout(&queueInstance);
+	//		printf("Current full: %u\n", currentFull);
+			counter++;
+		}
+	
+		gettimeofday(&stop, NULL);
+	
+		printf("Value of counter: %i\n", counter);
+	
+		printf("It took %lu microseconds for %i iterations\n", stop.tv_usec - start.tv_usec, i);
+		
+		queueReturn = XRunqueue_GetReturn(&queueInstance);
+	
+		printf("Ending return value: %u\n", queueReturn);
+	}
 
 	XRunqueue_Release(&queueInstance);
 }
