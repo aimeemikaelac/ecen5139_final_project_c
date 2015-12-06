@@ -129,6 +129,26 @@ u32 XRunqueue_GetIterationsVld(XRunqueue *InstancePtr) {
     return Data & 0x1;
 }
 
+u32 XRunqueue_GetFinished(XRunqueue *InstancePtr) {
+    u32 Data;
+
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Data = XRunqueue_ReadReg(InstancePtr->Axi4lites_BaseAddress, XRUNQUEUE_AXI4LITES_ADDR_FINISHED_DATA);
+    return Data;
+}
+
+u32 XRunqueue_GetFinishedVld(XRunqueue *InstancePtr) {
+    u32 Data;
+
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Data = XRunqueue_ReadReg(InstancePtr->Axi4lites_BaseAddress, XRUNQUEUE_AXI4LITES_ADDR_FINISHED_CTRL);
+    return Data & 0x1;
+}
+
 void XRunqueue_InterruptGlobalEnable(XRunqueue *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);

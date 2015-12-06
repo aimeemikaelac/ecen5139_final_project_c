@@ -93,6 +93,8 @@ void XRunqueue_SetIterations(XRunqueue *InstancePtr, u32 Data);
 u32 XRunqueue_GetIterations(XRunqueue *InstancePtr);
 void XRunqueue_SetIterationsVld(XRunqueue *InstancePtr);
 u32 XRunqueue_GetIterationsVld(XRunqueue *InstancePtr);
+u32 XRunqueue_GetFinished(XRunqueue *InstancePtr);
+u32 XRunqueue_GetFinishedVld(XRunqueue *InstancePtr);
 
 void XRunqueue_InterruptGlobalEnable(XRunqueue *InstancePtr);
 void XRunqueue_InterruptGlobalDisable(XRunqueue *InstancePtr);
