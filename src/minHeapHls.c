@@ -2,7 +2,7 @@
 #include <sys/time.h>
 
 int main(int argc, char** argv){
-	int i = argc > 1 ? atoi(argv[1]) : 1;
+//	int i = argc > 1 ? atoi(argv[1]) : 1;
 	XRunqueue queueInstance;
 
 	XRunqueue_Initialize(&queueInstance, "runqueue");
@@ -15,22 +15,22 @@ int main(int argc, char** argv){
 	
 		printf("Starting return value: %u\n", queueReturn);
 		
-		XRunqueue_Start(&queueInstance);
-		
-		XRunqueue_SetIterations(&queueInstance, i);
+//		XRunqueue_SetIterations(&queueInstance, i);
 
 		gettimeofday(&start, NULL);
+		
+		XRunqueue_Start(&queueInstance);
 	
-		XRunqueue_SetIterationsVld(&queueInstance);
+//		XRunqueue_SetIterationsVld(&queueInstance);
 	
 		//wait for finish
-		while(XRunqueue_GetFinishedVld(&queueInstance) == 0){
+		while(XRunqueue_IsDone(&queueInstance) == 0){
 	//		u32 currentPriority = XRunqueue_GetCurrentpriority_v(&queueInstance);
 	//		printf("Current priority: %u\n", currentPriority);
 	//		u32 currentFull = XRunqueue_GetFullout(&queueInstance);
 	//		printf("Current full: %u\n", currentFull);
-			u32 currentIteration = XRunqueue_GetCurrentiteration(&queueInstance);
-			printf("Current iteration: %u\n", currentIteration);
+//			u32 currentIteration = XRunqueue_GetCurrentiteration(&queueInstance);
+//			printf("Current iteration: %u\n", currentIteration);
 			counter++;
 		}
 	
@@ -38,11 +38,11 @@ int main(int argc, char** argv){
 	
 		printf("Value of counter: %i\n", counter);
 	
-		printf("It took %lu microseconds for %i iterations\n", stop.tv_usec - start.tv_usec, i);
+		printf("It took %lu microseconds\n", stop.tv_usec - start.tv_usec);
 
-		u32 queueFinished = XRunqueue_GetFinished(&queueInstance);
+//		u32 queueFinished = XRunqueue_GetFinished(&queueInstance);
 
-		printf("Queue finished value: %u\n", queueFinished);
+//		printf("Queue finished value: %u\n", queueFinished);
 		
 		queueReturn = XRunqueue_GetReturn(&queueInstance);
 	
